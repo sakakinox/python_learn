@@ -1,3 +1,5 @@
 .vscode/settings.json
 test.jpg
 result.jpg
+cvconfig.py
+__pycache__

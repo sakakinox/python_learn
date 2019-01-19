@@ -1,11 +1,8 @@
 import cv2
+import cvconfig
 
-face_cascade_path = '/usr/local/opt/opencv/share/opencv4/haarcascades/haarcascade_frontalface_default.xml'
-img_path = 'test.jpg'
-result_path ='result.jpg'
-
-face_cascade = cv2.CascadeClassifier(face_cascade_path)
-img = cv2.imread(img_path)
+face_cascade = cv2.CascadeClassifier(cvconfig.FACE_CASCADE_PATH)
+img = cv2.imread(cvconfig.IMG_PATH)
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 faces = face_cascade.detectMultiScale(img_gray , 1.1, 30)
@@ -15,5 +12,5 @@ for x, y, w, h in faces:
     face = img[y: y + h, x: x + w]
     face_gray = img_gray[y: y + h, x: x + w]
     
-cv2.imwrite(result_path, img)
+cv2.imwrite(cvconfig.RESULT_PATH, img)
 
